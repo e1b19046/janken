@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>じゃんけんゲーム</title>
+</head>>
+
+<body>
+  <h1>Lec02 GET!</h1>>
+  <p>
+    Hi!
+    <?php echo $_POST["username"] ?>
+  </p>
+  <p>
+  <div>
+    <a href="/lec02/1">ぐー</a>=[[${jankenResult}]]
+  </div>
+  <div>
+    <a href="/lec02/2">ちょき</a>=[[${jankenResult}]]
+  </div>>
+  <div>
+    <a href="/lec02/3">ぱー</a>=[[${jankenResult}]]
+  </div>>
+  </p>
+  <p>
+    あなたの手
+  </p>>
+  <p>
+    相手の手
+  </p>
+  <p>
+    結果
+  </p>
+</body>>
+
+</html>>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
+
+<head>
+  <meta charset="utf-8">
+  <title>じゃんけんゲーム</title>
+</head>
+
+<body>
+  <a href="/logout">ログアウト</a>
+  <h1>Lec02 GET! [[${login_user}]]</h1>
+
+  <p>
+    エントリー
+  </p>>
+
+  <a href="/sample3/step8">入室(DI)</a>
+  <a href="/sample3/step9">入室(new)</a>
+  <!--roomがあった場合に表示される-->
+  <!--objectはdivの中でroomオブジェクトのフィールドにアクセスすることを示す-->
+  <div th:if="${room}">
+    DI利用
+    <ul>
+      <!--roomオブジェクトのroomNoというフィールドを指定している-->
+      <li>RoomNo:[[${room.roomNo}]]</li>
+      <!--eachは所謂for each．この場合roomオブジェクトのusersフィールドにあるすべてのデータを一通り表示する
+        thが指定されているので[]が不要になる-->
+      <li th:each="user : ${room.users}">[[${user}]]</li>
+    </ul>
+  </div>
+
+  <p>
+    <a href="/sample3/step2">ログインユーザ名をGETで取得(Sample3-2)</a>
+  </p>
+
+  <p>
+    <a href="/sample3/step3">Sample3-3へGETで移動</a>
+  </p>
+
+
+</body>
+
+</html>

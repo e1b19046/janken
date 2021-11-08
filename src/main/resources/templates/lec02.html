@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/schema/security">
+
+<head>
+  <meta charset="utf-8">
+  <title>じゃんけんゲーム</title>
+</head>
+
+<body>
+  <div><a href="/logout">ログアウト</a></div>
+  <h1>Lec02 GET!</h1>
+  <p>エントリー</p>
+  <div th:if="${room}">
+    <ul>
+      <li th:each="user : ${room.users}">[[${user}]]</li>
+    </ul>
+  </div>
+  <div th:if="${login_user}">Hi [[${login_user}]]</div>
+
+  <p>
+    <a href="/lec02/gu">ぐー</a>
+    <a href="/lec02/choki">ちょき</a>
+    <a href="/lec02/pa">ぱー</a>
+  </p>
+  <div th:if="${result}">
+    <p>あなたの手 [[${YourHand}]]</p>
+    <p>相手の手 [[${CPUHand}]]</p>
+    <p>結果 [[${result}]]</p>
+  </div>
+</body>
+
+</html>

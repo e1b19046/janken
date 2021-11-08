@@ -10,10 +10,11 @@
   <div><a href="/logout">ログアウト</a></div>
   <h1>Lec02 GET!</h1>
   <p>エントリー</p>
-  <div th:if="${room}">
-    <ul>
-      <li th:each="user : ${room.users}">[[${user}]]</li>
-    </ul>
+  <div>
+    <tr>
+      <td th:each="id : ${users.id}">ID:[[${User.id}]]</td>
+      <td th:each="name : ${users.name}">ユーザ名:[[${User.name}]]</td>
+    </tr>
   </div>
   <div th:if="${login_user}">Hi [[${login_user}]]</div>
 
